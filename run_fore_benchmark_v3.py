@@ -1,9 +1,9 @@
 """Reproducible numerical benchmark for the FORE zero-crossing reset map.
 
 Outputs:
-  * fore_benchmark_results_v3.csv
-  * nahs_fore_benchmark_v3.pdf
-  * nahs_fore_benchmark_v3.png
+  * fore_benchmark_results.csv
+  * nahs_fore_benchmark.pdf
+  * nahs_fore_benchmark.png
 
 The code computes the state-dependent post-reset map
     g_tau(z) = -J^T exp(A I_tau(z)) J z,
@@ -162,7 +162,7 @@ def main():
                "min_rho": float(np.min(rho)),
                "max_rho": float(np.max(rho))}
         rows.append(row); print(row)
-    csv_path = cfg.out_dir / "fore_benchmark_results_v3.csv"
+    csv_path = cfg.out_dir / "fore_benchmark_results.csv"
     with csv_path.open("w", newline="") as f:
         writer = csv.DictWriter(f, fieldnames=list(rows[0].keys())); writer.writeheader(); writer.writerows(rows)
     taus = np.array([r["tau_m"] for r in rows])
@@ -175,6 +175,6 @@ def main():
     plt.axvline(0.6145, linestyle=":", linewidth=1.0, label="reported LMI/SOS threshold")
     plt.xlabel(r"minimum dwell time $\tau_m$"); plt.ylabel("spectral-radius estimate")
     plt.ylim(0.0, 1.25); plt.grid(True, alpha=0.3); plt.legend(fontsize=8); plt.tight_layout()
-    plt.savefig(cfg.out_dir / "nahs_fore_benchmark_v3.pdf"); plt.savefig(cfg.out_dir / "nahs_fore_benchmark_v3.png", dpi=200)
+    plt.savefig(cfg.out_dir / "nahs_fore_benchmark.pdf"); plt.savefig(cfg.out_dir / "nahs_fore_benchmark.png", dpi=200)
     print(f"Wrote {csv_path}")
 if __name__ == "__main__": main()
