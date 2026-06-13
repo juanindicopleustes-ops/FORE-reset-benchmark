@@ -8,9 +8,9 @@ This repository contains the Python code used to reproduce the numerical benchma
 
 **Homogeneous zero-crossing reset systems and weighted spectral stability criterion**
 
-The code computes the full state-dependent post-reset map of the FORE benchmark, evaluates finite-horizon weighted cocycle estimates, computes projected-data EDMD spectral diagnostics, and generat[...]
+The code computes the full state-dependent post-reset map of the FORE benchmark, evaluates finite-horizon weighted cocycle estimates, computes projected-data EDMD spectral diagnostics, and generates the CSV table and figure used in the manuscript.
 
-The benchmark is designed to illustrate the weighted spectral-radius mechanism for homogeneous zero-crossing reset maps. The numerical estimates are diagnostic approximations and are not claimed t[...]
+The benchmark is designed to illustrate the weighted spectral-radius mechanism for homogeneous zero-crossing reset maps. The numerical estimates are diagnostic approximations and are not claimed to be rigorous certified upper bounds.
 
 ## Repository contents
 
@@ -35,7 +35,7 @@ Recommended optional files before public deposit:
 Running the script generates:
 
 - `fore_benchmark_results.csv`  
-  CSV table containing, for each dwell-time value \(\tau_m\), the terminal finite-horizon cocycle estimate, the weighted EDMD estimate, the maximum one-step radial gain, the frozen-branch referenc[...]
+  CSV table containing, for each dwell-time value \(\tau_m\), the terminal finite-horizon cocycle estimate, the weighted EDMD estimate, the maximum one-step radial gain, the frozen-branch reference value, return-time ranges, and radial-gain ranges.
 
 - `nahs_fore_benchmark.pdf`  
   Vector figure used in the manuscript.
@@ -125,7 +125,7 @@ where `I_tau(z)` is the first admissible reset time `t >= tau` satisfying
 C exp(A t) J z >= 0.
 ```
 
-The finite-horizon cocycle estimate reported by the script is the terminal horizon quantity `||W^K||^(1/K)` with `K = 100`. It is intentionally not the maximum over `k <= K`, because the latter m[...]
+The finite-horizon cocycle estimate reported by the script is the terminal horizon quantity `||W^K||^(1/K)` with `K = 100`. It is intentionally not the maximum over `k <= K`, because the latter measures short transient amplification and may exceed one even when the asymptotic weighted spectral radius is below one.
 
 ## Interpretation of outputs
 
@@ -141,15 +141,15 @@ The columns in `fore_benchmark_results.csv` are:
 - `min_rho`: smallest one-step radial gain on the angular grid.
 - `max_rho`: largest one-step radial gain on the angular grid.
 
-The quantities `r_cocycle_K100` and `r_edmd_deg12` are diagnostic numerical approximations to the weighted spectral-radius mechanism discussed in the manuscript. They are not advertised as rigoro[...]
+The quantities `r_cocycle_K100` and `r_edmd_deg12` are diagnostic numerical approximations to the weighted spectral-radius mechanism discussed in the manuscript. They are not advertised as rigorous certified upper bounds.
 
 ## Expected output summary
 
-With the default parameters, the generated table should show `r_cocycle_K100` and `r_edmd_deg12` below one for the tested `tau_m` values. The one-step gain `max_rho` may be above one; this indica[...]
+With the default parameters, the generated table should show `r_cocycle_K100` and `r_edmd_deg12` below one for the tested `tau_m` values. The one-step gain `max_rho` may be above one; this indicates transient single-step radial amplification and is not the same as the asymptotic weighted spectral-radius estimate.
 
 ## Recommended citation
 
-Until the repository receives a DOI, cite the accompanying manuscript and the public GitHub repository URL. After Zenodo publication, cite the software using the Zenodo DOI assigned to the archiv[...]
+Until the repository receives a DOI, cite the accompanying manuscript and the public GitHub repository URL. After Zenodo publication, cite the software using the Zenodo DOI assigned to the archived release.
 
 Suggested software citation format:
 
@@ -159,7 +159,7 @@ Author(s). FORE-reset-benchmark: Reproducible Python implementation of the FORE 
 
 ## Open-code deposit notes
 
-For the UPCT open-code workflow, the repository should be public before linking or archiving it through Zenodo. Before final deposit, check that the repository contains a license, this README fil[...]
+For the UPCT open-code workflow, the repository should be public before linking or archiving it through Zenodo. Before final deposit, check that the repository contains a license, this README file, and the exact script version used to generate the numerical results in the manuscript.
 
 ## License
 
@@ -167,17 +167,17 @@ This repository is released under the MIT License.
 
 MIT License
 
-Copyright (c) 2026 Juan I. Mulero-Martínez
+Copyright (c) 2026 [Author(s)]
 
-Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, inc[...]
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
 The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRING[...]
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 ## Contact
 
-Author/contact: Juan I. Mulero-Martínez, Department of Automation, Electrical Engineering, and Electronic Technology, Technical University of Cartagena (UPCT), Spain, juan.mulero@upct.es
+Author/contact: [add name, affiliation, and email before deposit]
 
 ## Version history
 
